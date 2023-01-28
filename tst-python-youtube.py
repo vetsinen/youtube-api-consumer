@@ -12,10 +12,10 @@ def iterate():
     for pl in channel_by_id.items:
 
         playlists_by_id = api.get_playlist_by_id(playlist_id=pl.id)
-        print(playlists_by_id.items)
+        print(playlist_title(playlists_by_id))
 
-        # for video in api.get_playlist_items(playlist_id=pl.id, count=2).items:
-        #     print(video.snippet.title)
+        for video in api.get_playlist_items(playlist_id=pl.id, count=2).items:
+            print(video.snippet.title)
 
         #     # with open('data.pickle', 'wb') as f:
             #     pickle.dump(video, f)
@@ -28,7 +28,6 @@ def research():
     with open('data.pickle', 'rb') as f:
         video = pickle.load(f)
 
-    print(video.snippet)
     # print(playlists_by_id.to_dict()['items'][0]['snippet']['title'])
 
 if __name__ == '__main__':
